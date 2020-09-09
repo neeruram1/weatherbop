@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.5.3'
-
+gem 'rest-client'
 gem 'faraday'
 gem 'figaro'
 gem 'rails', '~> 5.2.4', '>= 5.2.4.3'
