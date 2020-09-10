@@ -8,27 +8,32 @@ class Api::V1::UsersController < ApplicationController
       client_id: ENV['SPOTIFY_CLIENT_ID'],
       client_secret: ENV['SPOTIFY_CLIENT_SECRET']
     }
-    auth_response = RestClient.post('https://accounts.spotify.com/api/token', body)
-    auth_params = JSON.parse(auth_response.body)
-    header = {
-      Authorization: "Bearer #{auth_params["access_token"]}"
-    }
-    user_response = RestClient.get("https://api.spotify.com/v1/me", header)
-    user_params = JSON.parse(user_response.body)
-   
-    user = User.find_or_create_by(name: user_params["display_name"])
-    user.update(access_token: auth_params['access_token'])
-    if user.access_token_expired?
-      user.refresh_access_token
-    else
-      user.update(
-        access_token: auth_params["access_token"],
-        refresh_token: auth_params["refresh_token"]
-      )
-    end
+    auth_params = SpotifyService.new.get_auth_info(body)
+    access_token = auth_params['access_token']
+    refresh_token = auth_params['refresh_token']
+    user_params = SpotifyService.new.get_user_info(access_token)
+    user_name = user_params['display_name']
+    email = user_params['email']
+
+    User.find_by(name: user_name)? update_user(user_name, access_token) : create_user(user_name, access_token, email)
+    user = User.find_by(name: user_name)
+    user.access_token_expired? ? user.refresh_access_token : user.update(access_token: access_token, refresh_token: refresh_token)
+    
     session[:user_id] = user.id
     redirect_to "/api/v1/default_user/#{user.id}"
   end
   
+  private 
+  
+  def update_user(name, access_token)
+     user = User.find_by(name: name)
+     user.update(access_token: access_token)
+  end
 
+  def create_user(name, access_token, email)
+    user = User.new(name: name)
+    user.update(access_token: access_token, email: email)
+    UserMailer.with(user: user).welcome_email.deliver_now
+    user.save
+  end 
 end 
