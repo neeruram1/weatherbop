@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://api.openweathermap.org/data/2.5/weather?appid=0210d7031ecffc3658e6084bb5b325b6&q=denver,%20co,%20usa&units=imperial
+    uri: https://api.openweathermap.org/data/2.5/weather?appid=OPEN_WEATHER_API_KEY&q=denver,%20co,%20usa&units=imperial
     body:
       encoding: US-ASCII
       string: ''
@@ -21,11 +21,11 @@ http_interactions:
       Server:
       - openresty
       Date:
-      - Thu, 10 Sep 2020 17:52:42 GMT
+      - Thu, 10 Sep 2020 20:32:35 GMT
       Content-Type:
       - application/json; charset=utf-8
       Content-Length:
-      - '468'
+      - '463'
       Connection:
       - keep-alive
       X-Cache-Key:
@@ -38,7 +38,7 @@ http_interactions:
       - GET, POST
     body:
       encoding: UTF-8
-      string: '{"coord":{"lon":-104.98,"lat":39.74},"weather":[{"id":804,"main":"Clouds","description":"overcast
-        clouds","icon":"04d"}],"base":"stations","main":{"temp":46.15,"feels_like":41.47,"temp_min":44.01,"temp_max":48,"pressure":1028,"humidity":70},"visibility":10000,"wind":{"speed":3.36,"deg":360},"clouds":{"all":90},"dt":1599760306,"sys":{"type":1,"id":3449,"country":"US","sunrise":1599741419,"sunset":1599787003},"timezone":-21600,"id":5419384,"name":"Denver","cod":200}'
-  recorded_at: Thu, 10 Sep 2020 17:52:42 GMT
+      string: '{"coord":{"lon":-104.98,"lat":39.74},"weather":[{"id":803,"main":"Clouds","description":"broken
+        clouds","icon":"04d"}],"base":"stations","main":{"temp":50.95,"feels_like":45.95,"temp_min":48,"temp_max":54,"pressure":1027,"humidity":57},"visibility":10000,"wind":{"speed":3.74,"deg":130},"clouds":{"all":75},"dt":1599769723,"sys":{"type":1,"id":3449,"country":"US","sunrise":1599741419,"sunset":1599787003},"timezone":-21600,"id":5419384,"name":"Denver","cod":200}'
+  recorded_at: Thu, 10 Sep 2020 20:32:35 GMT
 recorded_with: VCR 6.0.0

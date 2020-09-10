@@ -1,5 +1,7 @@
 class DashboardController < ApplicationController
   def index
-    @weather = ForecastFacade.new.weather
+    location = "denver, co, usa"
+    forecast_facade = ForecastFacade.new(location)
+    @weather = forecast_facade.weather
   end
 end

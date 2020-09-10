@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://api.openweathermap.org/data/2.5/weather?appid=0210d7031ecffc3658e6084bb5b325b6&q=salt%20lake%20city&units=imperial
+    uri: https://api.openweathermap.org/data/2.5/weather?appid=OPEN_WEATHER_API_KEY&q=salt%20lake%20city&units=imperial
     body:
       encoding: US-ASCII
       string: ''
@@ -21,7 +21,7 @@ http_interactions:
       Server:
       - openresty
       Date:
-      - Thu, 10 Sep 2020 17:52:44 GMT
+      - Thu, 10 Sep 2020 20:32:36 GMT
       Content-Type:
       - application/json; charset=utf-8
       Content-Length:
@@ -39,7 +39,7 @@ http_interactions:
     body:
       encoding: UTF-8
       string: '{"coord":{"lon":-111.89,"lat":40.76},"weather":[{"id":801,"main":"Clouds","description":"few
-        clouds","icon":"02d"}],"base":"stations","main":{"temp":60.67,"feels_like":51.39,"temp_min":59,"temp_max":62.6,"pressure":1024,"humidity":17},"visibility":10000,"wind":{"speed":6.93,"deg":110},"clouds":{"all":20},"dt":1599760303,"sys":{"type":1,"id":5859,"country":"US","sunrise":1599743040,"sunset":1599788698},"timezone":-21600,"id":5780993,"name":"Salt
+        clouds","icon":"02d"}],"base":"stations","main":{"temp":67.33,"feels_like":57.63,"temp_min":66,"temp_max":69.8,"pressure":1023,"humidity":15},"visibility":10000,"wind":{"speed":8.05,"deg":350},"clouds":{"all":20},"dt":1599769667,"sys":{"type":1,"id":5859,"country":"US","sunrise":1599743040,"sunset":1599788698},"timezone":-21600,"id":5780993,"name":"Salt
         Lake City","cod":200}'
-  recorded_at: Thu, 10 Sep 2020 17:52:44 GMT
+  recorded_at: Thu, 10 Sep 2020 20:32:36 GMT
 recorded_with: VCR 6.0.0
