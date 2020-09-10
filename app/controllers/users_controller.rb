@@ -18,13 +18,13 @@ class UsersController < ApplicationController
     User.find_by(name: user_name)? update_user(user_name, access_token) : create_user(user_name, access_token, email)
     user = User.find_by(name: user_name)
     user.access_token_expired? ? user.refresh_access_token : user.update(access_token: access_token, refresh_token: refresh_token)
-    
+
     session[:user_id] = user.id
-    redirect_to "/default_user/#{user.id}"
+    redirect_to "/dashboard"
   end
-  
-  private 
-  
+
+  private
+
   def update_user(name, access_token)
      user = User.find_by(name: name)
      user.update(access_token: access_token)
@@ -35,5 +35,5 @@ class UsersController < ApplicationController
     user.update(access_token: access_token, email: email)
     UserMailer.with(user: user).welcome_email.deliver_now
     user.save
-  end 
-end 
+  end
+end
