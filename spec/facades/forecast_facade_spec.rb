@@ -3,9 +3,18 @@ require 'rails_helper'
 RSpec.describe ForecastFacade do
   describe "instance methods" do
     describe "#weather" do
-      facade = ForecastFacade.new("denver, co, usa")
-      weather = facade.weather
-      expect(weather).to be_a Forecast
+      it "returns a forecast object with the current weather for that location" do
+        VCR.use_cassette('weather_city_state_country') do
+          facade = ForecastFacade.new("denver, co, usa")
+          weather = facade.weather
+          expect(weather.city_name).to eq("Denver")
+          expect(weather.country_name).to eq("US")
+          expect(weather.main_desription).to_not eq(nil)
+          expect(weather.temp).to_not eq(nil)
+          expect(weather.temp_min).to_not eq(nil)
+          expect(weather.temp_max).to_not eq(nil)
+        end
+      end
     end
 
     describe "#results_forecast" do
