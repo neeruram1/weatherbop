@@ -1,0 +1,45 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.openweathermap.org/data/2.5/weather?appid=0210d7031ecffc3658e6084bb5b325b6&q=salt%20lake%20city&units=imperial
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v1.0.1
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - openresty
+      Date:
+      - Thu, 10 Sep 2020 17:52:44 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '470'
+      Connection:
+      - keep-alive
+      X-Cache-Key:
+      - "/data/2.5/weather?q=salt+lake+city&units=imperial"
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Access-Control-Allow-Methods:
+      - GET, POST
+    body:
+      encoding: UTF-8
+      string: '{"coord":{"lon":-111.89,"lat":40.76},"weather":[{"id":801,"main":"Clouds","description":"few
+        clouds","icon":"02d"}],"base":"stations","main":{"temp":60.67,"feels_like":51.39,"temp_min":59,"temp_max":62.6,"pressure":1024,"humidity":17},"visibility":10000,"wind":{"speed":6.93,"deg":110},"clouds":{"all":20},"dt":1599760303,"sys":{"type":1,"id":5859,"country":"US","sunrise":1599743040,"sunset":1599788698},"timezone":-21600,"id":5780993,"name":"Salt
+        Lake City","cod":200}'
+  recorded_at: Thu, 10 Sep 2020 17:52:44 GMT
+recorded_with: VCR 6.0.0
