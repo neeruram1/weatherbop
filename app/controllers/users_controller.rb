@@ -14,7 +14,7 @@ class UsersController < ApplicationController
     user = User.find(current_user.id)
     user.update(default_location: location)
     user.save!
-    flash[:success] = "Your default location has been updated"
+    flash[:success] = 'Your default location has been updated'
     redirect_to dashboard_path
   end
 end

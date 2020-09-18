@@ -11,7 +11,7 @@ class ApplicationController < ActionController::Base
     if search_params_exist? == false
       current_user.default_location
     elsif search_params_exist? && empty_city_country?
-      flash[:errors] = "please enter missing information"
+      flash[:errors] = 'please enter missing information'
       current_user.default_location
     elsif search_params_exist? && empty_city_country? == false && empty_state? == false
       "#{params[:city]}, #{params[:state]}, #{params[:country]}".downcase
@@ -21,7 +21,7 @@ class ApplicationController < ActionController::Base
   end
 
   def search_params_exist?
-    params.keys.include?("city") && params.keys.include?("country") && params.keys.include?("state")
+    params.keys.include?('city') && params.keys.include?('country') && params.keys.include?('state')
   end
 
   def empty_city_country?

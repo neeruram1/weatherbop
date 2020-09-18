@@ -9,7 +9,7 @@ class WeatherMusicFacade
   end
 
   def weather_music
-    unless results_weather_music[:data][:type] == "error"
+    unless results_weather_music[:data][:type] == 'error'
       WeatherMusic.new(results_weather_music, @location)
     end
   end

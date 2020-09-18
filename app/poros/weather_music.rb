@@ -29,6 +29,6 @@ class WeatherMusic
   def processed_tracks
     @unprocessed_tracks.map do |track|
       track[:uri]
-    end.join(",")
+    end.join(',')
   end
 end
