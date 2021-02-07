@@ -81,7 +81,7 @@ RSpec.describe 'welcome page' do
 
       visit root_path
 
-      within 'nav' do
+      within "nav" do
        expect(page).to_not have_link('logout')
        expect(page).to_not have_link('change default location')
       end
